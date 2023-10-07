@@ -35,7 +35,6 @@ module.exports = {
         res.end(JSON.stringify(taskStr))
     },
     editATodo: async (req, res) => {
-        console.log(req.body)
         await db.editTask(req.body)
         let data = await db.getList()
         let taskStr = data.reduce((a,b)=>a += strings.todostring(b), "")
